@@ -1,4 +1,5 @@
 import React, {Fragment} from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom";
 import {LINKS} from "../const";
@@ -40,6 +41,19 @@ const PersonScreen = ({ person }) => (
     <Link to={LINKS.MAIN} className="back">Back</Link>
   </Fragment>
 );
+
+PersonScreen.propTypes = {
+  persons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      birthyear: PropTypes.string.isRequired,
+      hairColor: PropTypes.string.isRequired,
+      eyeColor: PropTypes.string.isRequired,
+      height: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+};
 
 const mapStateToProps = (state, ownProps) => ({
     person: getPersonById(state, ownProps)

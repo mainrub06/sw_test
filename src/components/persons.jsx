@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { LINKS } from "../const";
 
@@ -20,5 +21,20 @@ const Persons = ({ persons, setViewed }) => (
     )}
   </ul>
 );
+
+Persons.propTypes = {
+  persons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      birthyear: PropTypes.string.isRequired,
+      hairColor: PropTypes.string.isRequired,
+      eyeColor: PropTypes.string.isRequired,
+      height: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+  setViewed: PropTypes.func.isRequired
+};
+
 
 export default Persons;

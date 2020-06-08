@@ -1,0 +1,8 @@
+# Вспомогательные файлы
+*.log*
+node_modules/
+.vscode
+
+# Бандлы
+public/bundle.js
+public/bundle.js.map

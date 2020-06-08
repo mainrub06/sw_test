@@ -2,13 +2,13 @@ import { extend, getFilteredPersons, pushElementToArray } from "../utils";
 const initialState = {
   persons: null,
   viewed: [],
-  search: ``
+  search: ``,
 };
 
 const ActionType = {
   LOAD_PERSONS: `LOAD_PERSONS`,
   SET_VIEWED_PERSON: `SET_VIEWED_PERSON`,
-  FIND_PERSON_BY_NAME: `FIND_PERSON_BY_NAME`
+  FIND_PERSON_BY_NAME: `FIND_PERSON_BY_NAME`,
 };
 
 const ActionCreator = {
@@ -31,9 +31,7 @@ const Operation = {
     return api
       .get(`/people`)
       .then((response) => {
-        dispatch(
-          ActionCreator.leadPersons(getFilteredPersons(response.data.results))
-        );
+        dispatch(ActionCreator.leadPersons(getFilteredPersons(response.data.results)));
       })
       .catch((err) => err);
   },
@@ -46,7 +44,7 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_VIEWED_PERSON:
       return extend(state, { viewed: pushElementToArray(state.viewed, action.payload) });
     case ActionType.FIND_PERSON_BY_NAME:
-      return extend(state, {search: action.payload});
+      return extend(state, { search: action.payload });
   }
   return state;
 };
