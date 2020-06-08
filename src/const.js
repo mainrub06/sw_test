@@ -1,4 +1,4 @@
 export const LINKS = {
-    MAIN: '/',
-    PERSON: '/person'
+  MAIN: "/",
+  PERSON: "/person",
 };

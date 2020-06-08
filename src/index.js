@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { reducer } from "./store/reducer";
 import { createAPI } from "./api";
-import {Operation as LoadPersonsData} from "./store/reducer";
+import { Operation as LoadPersonsData } from "./store/reducer";
 
 import App from "./components/app.jsx";
 
