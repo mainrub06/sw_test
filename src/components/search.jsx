@@ -1,43 +1,38 @@
-import React, { PureComponent } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-class Search extends PureComponent {
-  constructor(props) {
-    super(props);
+const Search = ({ findPersonByName }) => {
+  const [isValid, setIsValid] = useState(true)
 
-    this.handleSearchChange = this.handleSearchChange.bind(this);
-
-    this.state = {
-      isValidValue: true,
-    };
-  }
-
-  handleSearchChange(evt) {
-    const { findPersonByName } = this.props;
+  const handleSearchChange = (evt) => {
     evt.preventDefault();
     const searchValue = evt.target.value.toLowerCase();
+    console.log(searchValue)
 
     if (/[a-zA-Z]/.test(searchValue) || searchValue === ``) {
-      this.setState({ isValidValue: true });
+      setIsValid(true);
       findPersonByName(searchValue);
     } else {
-      this.setState({ isValidValue: false });
+      setIsValid(false);
     }
   }
 
-  render() {
-    const { isValidValue } = this.state;
-    return (
-      <div className="search">
-        {!isValidValue && <p className="search-wrong">Only english</p>}
-        <input onChange={this.handleSearchChange} type="search" placeholder="Search" />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="search">
+      {!isValid && <p className="search-wrong">Only english</p>}
+      <input
+        onChange={handleSearchChange}
+        type="search"
+        placeholder="Search"
+      />
+    </div>
+  );
+};
 
 Search.propTypes = {
-  findPersonByName: PropTypes.func.isRequired
-}
+  findPersonByName: PropTypes.func.isRequired,
+};
+
+
 
 export default Search;

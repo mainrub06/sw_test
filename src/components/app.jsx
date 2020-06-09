@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -10,9 +10,8 @@ import { ActionCreator } from "../store/reducer";
 import MainScreen from "./main-screen.jsx";
 import PersonScreen from "./person-screen.jsx";
 
-class App extends PureComponent {
-  renderMainPage() {
-    const { persons, viewed, setViewed, findPersonByName } = this.props;
+const App = ({persons, viewed, setViewed, findPersonByName }) => {
+  const renderMainPage = () => {
     return (
       persons && (
         <MainScreen
@@ -25,18 +24,16 @@ class App extends PureComponent {
     );
   }
 
-  render() {
-    return (
-      <Router history={history}>
+  return (
+    <Router history={history}>
         <Switch>
           <Route exact path={LINKS.MAIN}>
-            {this.renderMainPage()}
+            {renderMainPage()}
           </Route>
           <Route exact path={`${LINKS.PERSON}/:id`} component={PersonScreen} />
         </Switch>
       </Router>
-    );
-  }
+  );
 }
 
 App.propTypes = {
