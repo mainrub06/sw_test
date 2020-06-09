@@ -1,3 +1,5 @@
+import { REGULARS } from "./const";
+
 export const extend = (firstInnerElement, secondInnerElement) => {
   return Object.assign({}, firstInnerElement, secondInnerElement);
 };
@@ -22,3 +24,5 @@ export const pushElementToArray = (prevState, newElement) => {
   }
   return prevState;
 };
+
+export const validWithoutRusAlfabet = (value) => value.split(``).every(symbol => REGULARS.withoutRus.test(symbol));

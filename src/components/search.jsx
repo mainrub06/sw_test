@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { validWithoutRusAlfabet } from "../utils";
 
 const Search = ({ findPersonByName }) => {
-  const [isValid, setIsValid] = useState(true)
+  const [isValid, setIsValid] = useState(true);
 
   const handleSearchChange = (evt) => {
     evt.preventDefault();
     const searchValue = evt.target.value.toLowerCase();
-    console.log(searchValue)
 
-    if (/[a-zA-Z]/.test(searchValue) || searchValue === ``) {
+
+    if (validWithoutRusAlfabet(searchValue) || searchValue === ``) {
       setIsValid(true);
       findPersonByName(searchValue);
     } else {
@@ -32,7 +33,5 @@ const Search = ({ findPersonByName }) => {
 Search.propTypes = {
   findPersonByName: PropTypes.func.isRequired,
 };
-
-
 
 export default Search;

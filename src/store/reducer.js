@@ -12,7 +12,7 @@ const ActionType = {
 };
 
 const ActionCreator = {
-  leadPersons: (persons) => ({
+  loadPersons: (persons) => ({
     type: ActionType.LOAD_PERSONS,
     payload: persons,
   }),
@@ -31,7 +31,7 @@ const Operation = {
     return api
       .get(`/people`)
       .then((response) => {
-        dispatch(ActionCreator.leadPersons(getFilteredPersons(response.data.results)));
+        dispatch(ActionCreator.loadPersons(getFilteredPersons(response.data.results)));
       })
       .catch((err) => err);
   },
