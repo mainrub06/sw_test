@@ -1,0 +1,39 @@
+.persons {
+  padding: 0px;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+
+.persons__item {
+  position: relative;
+  cursor: pointer;
+}
+
+.persons__item::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* background: url("../img/arrow.png") no-repeat center center; */
+}
+
+.persons__item:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+
+.persons__link {
+  display: block;
+  color: #474747;
+  background: #d5d5d5;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.persons__link:hover {
+  background: rgb(131, 131, 131);
+}

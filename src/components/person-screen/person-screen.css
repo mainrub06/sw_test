@@ -1,0 +1,63 @@
+.person__logo {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.person__name {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+.person__wrap {
+  background: #D5D5D5;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+.person__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.person__item {
+  display: flex;
+}
+
+.person__item p {
+  font-size: 24px;
+  width: 250px;
+  margin-right: 20px;
+}
+
+.person__item p:first-child {
+  color: #474747;
+}
+
+.person__item:not(:last-child) {
+  border-bottom: 2px solid grey;
+}
+
+.person__button {
+  display: block;
+  max-width: 200px;
+  box-sizing: border-box;
+  font-size: 24px;
+  text-align: center;
+  background: #C4C4C4;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 5px 30px;
+  border-radius: 5px;
+  margin: 10px auto;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.person__button:hover {
+  background: rgb(150, 150, 150);
+}

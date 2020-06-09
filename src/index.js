@@ -7,7 +7,7 @@ import { reducer } from "./store/reducer";
 import { createAPI } from "./api";
 import { Operation as LoadPersonsData } from "./store/reducer";
 
-import App from "./components/app.jsx";
+import App from "./components/app/app.jsx";
 
 const api = createAPI();
 

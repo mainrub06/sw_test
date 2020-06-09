@@ -1,10 +1,10 @@
 import React, { Fragment, useCallback } from "react";
-import ViewedAside from "./viewed-aside.jsx";
-import Persons from "./persons.jsx";
-import Search from "./search.jsx";
+import ViewedAside from "../viewed-aside/viewed-aside.jsx";
+import Persons from "../persons/persons.jsx";
+import Search from "../search/search.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { getPersons, getViewed } from "../store/selectors";
-import { ActionCreator } from "../store/reducer";
+import { getPersons, getViewed } from "../../store/selectors";
+import { ActionCreator } from "../../store/reducer";
 
 const MainScreen = () => {
   const persons = useSelector((state) => getPersons(state));

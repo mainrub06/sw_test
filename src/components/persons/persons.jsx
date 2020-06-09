@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { LINKS } from "../const";
+import { LINKS } from "../../const";
+
+import styles from "./persons.css";
 
 const Persons = ({ persons, setViewed }) => (
-  <ul className="persons">
+  <ul className={styles.persons}>
     {(persons && persons.length !== 0) ? (
       persons.map((person) => (
-        <li key={person.id} className="persons-item">
+        <li key={person.id} className={styles.persons__item}>
           <Link
             onClick={() => setViewed(person)}
             to={LINKS.PERSON + `/${person.id}`}
+            className={styles.persons__link}
           >
             {person.name}
           </Link>

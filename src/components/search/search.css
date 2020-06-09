@@ -1,0 +1,19 @@
+.search {}
+
+.search__input {
+  border: none;
+  width: 100%;
+  padding: 12px 75px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  letter-spacing: 3px;
+  /* background: #fff url("../../../public/img/search.png") no-repeat 20px center; */
+  background-size: 23px 23px;
+}
+
+.search__wrong {
+  font-size: 12px;
+  text-align: center;
+  margin: 5px 0;
+  color: #ff0000;
+}

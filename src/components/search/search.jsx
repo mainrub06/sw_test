@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { validWithoutRusAlfabet } from "../utils";
+import { validWithoutRusAlfabet } from "../../utils";
+import styles from "./search.css";
 
 const Search = ({ findPersonByName }) => {
   const [isValid, setIsValid] = useState(true);
@@ -8,7 +9,6 @@ const Search = ({ findPersonByName }) => {
   const handleSearchChange = (evt) => {
     evt.preventDefault();
     const searchValue = evt.target.value.toLowerCase();
-
 
     if (validWithoutRusAlfabet(searchValue) || searchValue === ``) {
       setIsValid(true);
@@ -19,9 +19,10 @@ const Search = ({ findPersonByName }) => {
   }
 
   return (
-    <div className="search">
-      {!isValid && <p className="search-wrong">Only english</p>}
+    <div className={styles.search}>
+      {!isValid && <p className={styles.search__wrong}>Only english</p>}
       <input
+        className={styles.search__input}
         onChange={handleSearchChange}
         type="search"
         placeholder="Search"
