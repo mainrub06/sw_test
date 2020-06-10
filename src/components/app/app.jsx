@@ -2,7 +2,6 @@ import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { LINKS } from "../../const";
 import history from "../../history";
-
 import MainScreen from "../main-screen/main-screen.jsx";
 import PersonScreen from "../person-screen/person-screen.jsx";
 

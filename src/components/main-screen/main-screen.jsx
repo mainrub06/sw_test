@@ -1,10 +1,11 @@
-import React, { Fragment, useCallback } from "react";
+import React, { useCallback } from "react";
 import ViewedAside from "../viewed-aside/viewed-aside.jsx";
 import Persons from "../persons/persons.jsx";
 import Search from "../search/search.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { getPersons, getViewed } from "../../store/selectors";
 import { ActionCreator } from "../../store/reducer";
+import styles from "./main-screen.css";
 
 const MainScreen = () => {
   const persons = useSelector((state) => getPersons(state));
@@ -21,23 +22,23 @@ const MainScreen = () => {
   }, []);
 
   return (
-    <Fragment>
-      <div className="logo">
+    <section className={styles.main}>
+      <div className={styles.main__logo}>
         <a>
           <img src="img/logo.png" alt="Logo" />
         </a>
       </div>
-      <h1 className="title">Find your hero</h1>
-      <div className="row">
-        <div className="col col-left">
+      <h1 className={styles.main__title}>Find your hero</h1>
+      <div className={styles.main__row}>
+        <div className={styles.main__col}>
           <ViewedAside viewed={viewed} />
         </div>
-        <div className="col col-right">
+        <div className={styles.main__col}>
           <Search findPersonByName={findPersonByName} />
           <Persons persons={persons} setViewed={setViewed} />
         </div>
       </div>
-    </Fragment>
+    </section>
   );
 };
 

@@ -7,7 +7,7 @@
   border-radius: 5px;
   box-sizing: border-box;
   letter-spacing: 3px;
-  /* background: #fff url("../../../public/img/search.png") no-repeat 20px center; */
+  background: #fff url("../img/search.png") no-repeat 20px center;
   background-size: 23px 23px;
 }
 

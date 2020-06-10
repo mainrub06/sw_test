@@ -1,4 +1,5 @@
 const path = require(`path`);
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: `./src/index.js`,
@@ -24,11 +25,9 @@ module.exports = {
 
       {
         test: /\.css$/i,
-        exclude: /node_modules/,
         use: [
           {
-            loader: "style-loader",
-            // options: { injectType: "linkTag" },
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: "css-loader",
@@ -36,14 +35,22 @@ module.exports = {
               modules: {
                 mode: "local",
                 exportGlobals: true,
-                localIdentName: "[local]__[hash:base64:5]",
-                context: path.resolve(__dirname, 'src')
+                localIdentName: "[local]__[hash:base64:4]",
+                context: path.resolve(__dirname, "src"),
               },
+              url: (url, resourcePath) => {
+                return false;
+              }
             },
           },
         ],
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "css/style.css",
+    }),
+  ],
   devtool: `source-map`,
 };

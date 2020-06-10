@@ -1,0 +1,20 @@
+img {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Sw";
+  src: local("Sw"), local("Sw"), url("../fonts/sw.woff2") format("woff2");
+}
+
+body {
+  margin: 0;
+  font-family: "Sw";
+  background: #474747;
+}
+
+#root {
+  max-width: 1200px;
+  padding: 25px 15px;
+  margin: 0 auto;
+}
