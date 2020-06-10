@@ -16,7 +16,7 @@ export const getPersonById = (state, ownProps) => {
 };
 
 export const getViewed = (state) => {
-  if (state.viewed.length !== 0) {
+  if (state.viewed && state.viewed.length !== 0) {
     return state.viewed;
   }
   return [];

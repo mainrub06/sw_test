@@ -1,4 +1,4 @@
-import { extend, getFilteredPersons, pushElementToArray } from "../utils";
+import { extend, getFilteredPersons, pushElementToArray, removeElementById } from "../utils";
 const initialState = {
   persons: null,
   viewed: [],
@@ -9,6 +9,7 @@ const ActionType = {
   LOAD_PERSONS: `LOAD_PERSONS`,
   SET_VIEWED_PERSON: `SET_VIEWED_PERSON`,
   FIND_PERSON_BY_NAME: `FIND_PERSON_BY_NAME`,
+  REMOVE_VIEWED_PERSON: `REMOVE_VIEWED_PERSON`
 };
 
 const ActionCreator = {
@@ -24,6 +25,10 @@ const ActionCreator = {
     type: ActionType.FIND_PERSON_BY_NAME,
     payload: value,
   }),
+  removeViewedPerson: (id) => ({
+    type: ActionType.REMOVE_VIEWED_PERSON,
+    payload: id,
+  })
 };
 
 const Operation = {
@@ -45,6 +50,8 @@ const reducer = (state = initialState, action) => {
       return extend(state, { viewed: pushElementToArray(state.viewed, action.payload) });
     case ActionType.FIND_PERSON_BY_NAME:
       return extend(state, { search: action.payload });
+    case ActionType.REMOVE_VIEWED_PERSON:
+      return extend(state, { viewed: removeElementById(state.viewed, action.payload)});
   }
   return state;
 };

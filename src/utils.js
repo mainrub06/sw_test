@@ -26,3 +26,5 @@ export const pushElementToArray = (prevState, newElement) => {
 };
 
 export const validWithoutRusAlfabet = (value) => value.split(``).every(symbol => REGULARS.withoutRus.test(symbol));
+
+export const removeElementById = (array, id) => Array.isArray(array) ? array.filter(el => el.id !== id) : array;
